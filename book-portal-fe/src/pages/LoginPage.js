@@ -46,9 +46,9 @@ const LoginPage = (props) => {
                 resetForm();
               }}>
         <Form className="ui form">
-          <UqiTextInput name="username" placeholder={t("Username")}></UqiTextInput>
-          <UqiTextInput name="password" placeholder={t("Password")} type="password"></UqiTextInput>
-          <Button color="yellow" type="submit">{t("SignIn")}</Button>
+          <UqiTextInput name="username" placeholder={t("User")}></UqiTextInput>
+          <UqiTextInput name="password" placeholder={t("Passcode")} type="password"></UqiTextInput>
+          <Button color="blue" type="submit">{t("SignIn")}</Button>
         </Form>
       </Formik>
     </Segment>
