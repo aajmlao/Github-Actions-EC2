@@ -1,0 +1,46 @@
+version: "3"
+services:
+  db:
+    image: mysql:8.0
+    container_name: "book-portal-db"
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: book_portal
+      MYSQL_USER: username
+      MYSQL_PASSWORD: userpassword
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./dbData:/docker-entrypoint-initdb.d:ro
+    platform: linux/amd64
+    
+    
+  book-portal-be:
+    image: ajlao/book-portal-be:latest
+    container_name: "book-portal-be"
+    platform: linux/amd64
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/book_portal?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: username
+      SPRING_DATASOURCE_PASSWORD: userpassword
+
+
+  book-portal-fe:
+    image: ajlao/book-portal-fe:latest
+    container_name: "book-portal-fe"
+    depends_on:
+      - book-portal-be
+    platform: linux/amd64
+  proxy:
+    image: ajlao/book-portal-proxy:latest
+    container_name: "book-portal-proxy"
+    restart: always
+    ports:
+      - "80:80"
+    platform: linux/amd64
+
+volumes:
+  db_data:
