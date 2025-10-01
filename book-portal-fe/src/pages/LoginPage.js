@@ -37,7 +37,7 @@ const LoginPage = (props) => {
     <Segment inverted color="blue">
       <Header as="h2" icon textAlign="center">
         <Icon inverted color="yellow" name="sign-in" circular />
-        <Header.Content>{t("Log In")}</Header.Content>
+        <Header.Content>{t("Login")}</Header.Content>
       </Header>
       <Formik initialValues={initialValues}
               validationSchema={schema}
@@ -48,7 +48,7 @@ const LoginPage = (props) => {
         <Form className="ui form">
           <UqiTextInput name="username" placeholder={t("Username")}></UqiTextInput>
           <UqiTextInput name="password" placeholder={t("Password")} type="password"></UqiTextInput>
-          <Button color="yellow" type="submit">{t("Log In")}</Button>
+          <Button color="yellow" type="submit">{t("Sign in")}</Button>
         </Form>
       </Formik>
     </Segment>
