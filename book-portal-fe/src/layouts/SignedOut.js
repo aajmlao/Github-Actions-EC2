@@ -10,10 +10,10 @@ const SignedOut = () => {
   return (
     <div>
       <Link to="/login">
-        <Button style={{ marginTop: "0.5em" }} color="blue">{t("Log in")}</Button>
+        <Button style={{ marginTop: "0.5em" }} color="red">{t("Log in")}</Button>
       </Link>
       <Link to="/signup">
-        <Button color="blue" style={{ marginLeft: "0.5em" }}>{t("Sign Up")}</Button>
+        <Button color="red" style={{ marginLeft: "0.5em" }}>{t("Sign Up")}</Button>
       </Link>
     </div>
   );
